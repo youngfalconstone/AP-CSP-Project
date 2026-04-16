@@ -32,7 +32,7 @@ def calculate_final_grade(subgrades):
         if grade > 1:
             total += grade
             count += 1
-    return total/count
+    return round((total / count) * 2) / 2
 
 def collect_condition():
     #CSP: instructions for input from the user
