@@ -1,8 +1,6 @@
 from word2number import w2n
 
 def calculate_subgrades(condition):
-    #CSP: use of at least one collection type to represent a collection of data that is stored
-    #CSP: at least one procedure that contributes to the program's intended purpose
     if condition["Centering"] >= 0.9:
         centering = 10
     elif condition["Centering"] >= 0.8:
@@ -22,20 +20,15 @@ def calculate_subgrades(condition):
     return subgrades
 
 def calculate_final_grade(subgrades):
-    #CSP: an algorithm that includes sequencing, selection, and iteration
-    #sequencing
     total = 0
     count = 0
-    #iteration
     for grade in subgrades.values():
-        #selection
         if grade > 1:
             total += grade
             count += 1
     return round((total / count) * 2) / 2
 
 def collect_condition():
-    #CSP: instructions for input from the user
     condition = {
         "Minor Corner Dings": w2n.word_to_num(input("Minor Corner Dings: ")),
         "Major Corner Dings": w2n.word_to_num(input("Major Corner Dings: ")),
@@ -48,7 +41,6 @@ def collect_condition():
     return condition
 
 def main():
-    #CSP: calls to student-developed procedure
     print("\nWelcome to the card grading program.\n")
 
     condition = collect_condition()
@@ -61,7 +53,6 @@ def main():
 
     final_grade = calculate_final_grade(subgrades)
 
-    #CSP: output based off input and program functionality
     print(f"\nFinal Grade: {final_grade}")
 
 if __name__ == "__main__":
